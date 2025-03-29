@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "perplexity-search": {
+      "command": "/workspace/mcp/perplexity-search-go/perplexity-search-mcp",
+      "env": {
+        "PERPLEXITY_API_KEY": "your-perplexity-api-key"
+      }
+    }
+  }
+}
