@@ -1,0 +1,22 @@
+# smithery.yaml
+startCommand:
+  # Specifies that this is a standard I/O based MCP server
+  type: stdio
+  
+  # Defines the configuration schema for the server.
+  # Since the Go app uses environment variables, we can start with an empty schema.
+  configSchema: 
+    type: object
+    properties: {}
+    
+  # JavaScript function that returns the command and arguments to start the server.
+  commandFunction: |
+    function(config) {
+      // Return the command to execute the compiled Go binary.
+      // The path matches the location in the final Docker image stage.
+      return {
+        command: ["/root/perplexity-search-mcp"], 
+        args: [],
+        env: {}
+      };
+    } 

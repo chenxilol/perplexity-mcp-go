@@ -17,4 +17,8 @@ WORKDIR /root/
 
 COPY --from=builder /app/perplexity-search-mcp .
 
-ENTRYPOINT ["./perplexity-search-mcp"] 
+# Make the binary executable
+RUN chmod +x perplexity-search-mcp
+
+# Use exec form of ENTRYPOINT to ensure proper signal handling
+ENTRYPOINT ["/root/perplexity-search-mcp"] 
