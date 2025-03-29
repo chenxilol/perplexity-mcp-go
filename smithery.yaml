@@ -5,18 +5,46 @@ startCommand:
   
   # Defines the configuration schema for the server.
   # Since the Go app uses environment variables, we can start with an empty schema.
-  configSchema: 
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
     type: object
-    properties: {}
+    properties:
+      PERPLEXITY_API_KEY:
+        type: string
+        description: "Perplexity API key for authentication"
+      PERPLEXITY_MODEL:
+        type: string
+        default: "sonar-pro"
+        description: "Default Perplexity model to use for searches"
+        enum: ["sonar-pro", "sonar", "sonar-deep-research", "sonar-reasoning-pro", "sonar-reasoning", "r1-1776"]
+      DEFAULT_MAX_TOKENS:
+        type: integer
+        default: 2000
+        description: "Default maximum number of tokens to return in responses"
+      DEFAULT_SEARCH_CONTEXT_SIZE:
+        type: string
+        default: "medium"
+        description: "Default search context size (low, medium, high)"
+        enum: ["low", "medium", "high"]
+    required: ["PERPLEXITY_API_KEY"]
     
   # JavaScript function that returns the command and arguments to start the server.
   commandFunction: |
     function(config) {
-      // Return the command to execute the compiled Go binary.
-      // The path matches the location in the final Docker image stage.
       return {
-        command: ["/root/perplexity-search-mcp"], 
+        command: "/root/perplexity-search-mcp",
         args: [],
-        env: {}
+        env: {
+          PERPLEXITY_API_KEY: config.PERPLEXITY_API_KEY,
+          PERPLEXITY_MODEL: config.PERPLEXITY_MODEL,
+          DEFAULT_MAX_TOKENS: config.DEFAULT_MAX_TOKENS?.toString(),
+          DEFAULT_SEARCH_CONTEXT_SIZE: config.DEFAULT_SEARCH_CONTEXT_SIZE
+        }
       };
-    } 
+    }
+
+  exampleConfig:
+    PERPLEXITY_API_KEY: "your-api-key-here"
+    PERPLEXITY_MODEL: "sonar-pro"
+    DEFAULT_MAX_TOKENS: 2000
+    DEFAULT_SEARCH_CONTEXT_SIZE: "medium" 
