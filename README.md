@@ -126,8 +126,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - [Model Context Protocol](https://modelcontextprotocol.io/) for the MCP specification
 - [MCP-Go](https://github.com/mark3labs/mcp-go) for the Go MCP implementation
-<<<<<<< HEAD
 - [Perplexity](https://www.perplexity.ai/) for their search API 
-=======
-- [Perplexity](https://www.perplexity.ai/) for their search API 
->>>>>>> master
+
