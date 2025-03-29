@@ -24,6 +24,14 @@ A Go implementation of a Perplexity Search MCP server that allows large language
 
 ## Setup & Usage
 
+### Installing via Smithery
+
+To install Perplexity Search Golang for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@chenxilol/perplexity-mcp-go):
+
+```bash
+npx -y @smithery/cli install @chenxilol/perplexity-mcp-go --client claude
+```
+
 ### Prerequisites
 
 - Go 1.23 or higher
@@ -127,4 +135,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Model Context Protocol](https://modelcontextprotocol.io/) for the MCP specification
 - [MCP-Go](https://github.com/mark3labs/mcp-go) for the Go MCP implementation
 - [Perplexity](https://www.perplexity.ai/) for their search API 
-
