@@ -126,8 +126,4 @@ docker run -i --rm -e PERPLEXITY_API_KEY=你的API密钥 perplexity-search-mcp:l
 
 - [Model Context Protocol](https://modelcontextprotocol.io/) 提供的 MCP 规范
 - [MCP-Go](https://github.com/mark3labs/mcp-go) 提供的 Go MCP 实现
-<<<<<<< HEAD
 - [Perplexity](https://www.perplexity.ai/) 提供的搜索 API 
-=======
-- [Perplexity](https://www.perplexity.ai/) 提供的搜索 API 
->>>>>>> master
